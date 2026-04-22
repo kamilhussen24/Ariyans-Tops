@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '960649820022176');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=960649820022176&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Trading By Riham</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #D41920;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  header {
+    background: linear-gradient(to bottom, #FFD700, #FFFFFF);
+    padding: 20px 20px 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .custom-logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 8px #D41920);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 5px;
+  }
+  
+  .custom-logo:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 12px #D41920);
+    background: rgba(255, 215, 0, 0.2);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d50000; /* premium deep red */
+    animation: fadeIn 1.5s ease-in-out;
+    cursor: pointer;
+}
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .main-text {
+    margin: 20px auto 15px auto;
+    width: 90%;
+    max-width: 800px;
+    font-size: 1rem;
+    line-height: 1.5;
+    animation: slideUp 1s ease-out;
+    cursor: pointer;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .join-btn {
+    background: linear-gradient(135deg, #0088CC, #0088CC);
+    color: #FFFFFF;
+    padding: 18px 65px;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(0, 136, 204, 0.5);
+    margin: 10px auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 10;
+  }
+
+  .join-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 136, 204, 0.7);
+    background: linear-gradient(135deg, #ff8c00, #D41920);
+  }
+
+  .join-btn img {
+    height: 32px;
+    width: 32px;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #D41920, transparent);
+    margin: 25px auto;
+    width: 70%;
+  }
+
+  .privacy-box {
+    background-color: #FFFFFF;
+    margin: 15px auto;
+    padding: 15px 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    color: #D41920;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .privacy-box h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .privacy-box p {
+    margin: 6px 0;
+    font-size: 0.85rem;
+  }
+
+  footer {
+    margin: 20px 0 20px;
+    padding: 0 20px;
+    font-size: 0.8rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .copyright-text {
+    letter-spacing: 0.3px;
+    font-size: 0.8rem;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .copyright-text:hover {
+    color: #D41920;
+    text-decoration: underline;
+  }
+
+  .telegram-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #D41920, #ff8c00);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 1px 5px rgba(255, 215, 0, 0.3);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .telegram-link:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 3px 10px rgba(255, 215, 0, 0.5);
+    background: linear-gradient(135deg, #ff8c00, #D41920);
+  }
+
+  .telegram-link img {
+    width: 13px;
+    height: 13px;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+  }
+
+  .telegram-link:hover img {
+    transform: scale(1.1);
+  }
+
+  .icon-container {
+    margin: 10px 0;
+    cursor: pointer;
+  }
+
+  .icon-container img {
+    width: 40px;
+    height: auto;
+    margin: 0 8px;
+    filter: drop-shadow(0 0 5px #D41920);
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+
+  .icon-container img:hover {
+    transform: scale(1.2);
+  }
+
+  .header-area {
+    cursor: pointer;
+  }
+
+  .click-hand {
+    font-size: 24px;
+    margin-top: 5px;
+    color: #FFD700;
+    text-shadow: 
+      0 0 5px rgba(255, 215, 0, 0.7),
+      0 0 10px rgba(255, 215, 0, 0.6),
+      0 0 15px rgba(255, 215, 0, 0.5);
+    animation: upDown 1s infinite;
+    cursor: pointer;
+  }
+
+  @keyframes upDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @media (min-width: 769px) {
+    header {
+      padding: 15px 20px 12px 20px;
+    }
+    .custom-logo {
+      width: 65px;
+      height: 65px;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    .main-text {
+      font-size: 1rem;
+      margin: 15px auto;
+    }
+    .join-btn {
+      padding: 16px 60px;
+      font-size: 1.7rem;
+    }
+    .join-btn img {
+      height: 30px;
+      width: 30px;
+    }
+    footer {
+      gap: 10px;
+    }
+    .copyright-text {
+      font-size: 0.8rem;
+    }
+    .telegram-link {
+      width: 22px;
+      height: 22px;
+    }
+    .privacy-box {
+      padding: 12px 20px;
+    }
+    .privacy-box h2 {
+      font-size: 1.2rem;
+    }
+    .privacy-box p {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    header {
+      padding: 12px 20px 10px 20px;
+    }
+    .custom-logo {
+      width: 55px;
+      height: 55px;
+    }
+    h1 {
+      font-size: 1.3rem;
+    }
+    .main-text {
+      font-size: 0.9rem;
+      margin: 12px auto;
+    }
+    .join-btn {
+      padding: 14px 50px;
+      font-size: 1.5rem;
+    }
+    .join-btn img {
+      height: 26px;
+      width: 26px;
+    }
+    footer {
+      gap: 6px;
+    }
+    .copyright-text {
+      font-size: 0.7rem;
+    }
+    .telegram-link {
+      width: 20px;
+      height: 20px;
+    }
+    .telegram-link img {
+      width: 11px;
+      height: 11px;
+    }
+    .click-hand {
+      font-size: 20px;
+    }
+    .icon-container img {
+      width: 35px;
+    }
+    .privacy-box {
+      padding: 10px 15px;
+    }
+    .privacy-box h2 {
+      font-size: 1.1rem;
+    }
+    .privacy-box p {
+      font-size: 0.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header {
+      padding: 10px 20px 8px 20px;
+    }
+    .custom-logo {
+      width: 50px;
+      height: 50px;
+    }
+    h1 {
+      font-size: 1.1rem;
+    }
+    .main-text {
+      font-size: 0.85rem;
+      margin: 10px auto;
+    }
+    .join-btn {
+      padding: 12px 42px;
+      font-size: 1.3rem;
+    }
+    .join-btn img {
+      height: 22px;
+      width: 22px;
+    }
+    footer {
+      gap: 5px;
+    }
+    .copyright-text {
+      font-size: 0.65rem;
+    }
+    .telegram-link {
+      width: 18px;
+      height: 18px;
+    }
+    .telegram-link img {
+      width: 10px;
+      height: 10px;
+    }
+    .click-hand {
+      font-size: 18px;
+    }
+    .icon-container img {
+      width: 30px;
+    }
+    .privacy-box {
+      padding: 8px 12px;
+    }
+    .privacy-box h2 {
+      font-size: 1rem;
+    }
+    .privacy-box p {
+      font-size: 0.7rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <header class="header-area">
+    <img class="custom-logo" src="https://raw.githubusercontent.com/kamilhussen24/Trading-By-Riham/refs/heads/main/IMG_20260420_220407_400.jpg"
+         alt="Trading By Riham Logo">
+    <h1>Trading By Riham</h1>
+  </header>
+
+  <div class="main-text">
+    আপনি যদি Quotex এ ট্রেড করে লসে থাকেন তাহলে আপনি আমাদের এই <strong>Trading By Riham</strong> গ্রুপে জয়েন হতে পারেন!<br>
+    প্রফেশনালি ট্রেড করতে চাইলে আজই জয়েন করো! এটা একদম ফ্রি!
+  </div>
+
+  <div class="icon-container">
+    <img src="https://img.icons8.com/ios-filled/50/FFD700/stock-share.png" alt="trading" />
+    <img src="https://img.icons8.com/ios-filled/50/D41920/graph.png" alt="chart" />
+    <img src="https://img.icons8.com/ios-filled/50/FFD700/money-bag.png" alt="profit" />
+  </div>
+
+  <button class="join-btn">
+    <img src="https://img.icons8.com/ios-filled/50/telegram.png" 
+         alt="telegram" 
+         style="filter: invert(1);" />
+    JOIN NOW
+  </button>
+
+  <div class="click-hand">👆</div>
+  <hr>
+
+  <div class="privacy-box">
+    <h2>Privacy Policy</h2>
+    <p>আমাদের ওয়েবসাইট আপনার কোনো ব্যক্তিগত তথ্য সংগ্রহ করে না।</p>
+    <p>এই পেজ শুধুমাত্র আপনাকে আমাদের অফিসিয়াল Telegram চ্যানেলে রিডাইরেক্ট করার জন্য তৈরি।</p>
+    <p>আমরা কোনো লগইন, পেমেন্ট, বা রেজিস্ট্রেশনের তথ্য গ্রহণ করি না।</p>
+    <p>আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ।</p>
+    <p>প্রশ্ন থাকলে আমাদের Telegram চ্যানেলে যোগাযোগ করতে পারেন।</p>
+  </div>
+
+  <footer>
+    <span class="copyright-text">© 2026 Ads By KDex</span>
+    <a href="https://t.me/+DIKkgKBpsDE4ZWI9" target="_blank" rel="noopener noreferrer" class="telegram-link" title="Join our Telegram">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/telegram-app.png" alt="Telegram">
+    </a>
+  </footer>
+
+  <script>
+    const MAIN_TELEGRAM_LINK = 'https://t.me/+mCWD9EC7EI5mMzg1';
+    const KDEX_TELEGRAM_LINK = 'https://t.me/+DIKkgKBpsDE4ZWI9';
+    
+    function redirectToMainTelegram() {
+      window.open(MAIN_TELEGRAM_LINK, '_blank');
+      setTimeout(function() {
+        window.location.href = MAIN_TELEGRAM_LINK;
+      }, 2000);
+    }
+    
+    function redirectToKDexTelegram() {
+      window.open(KDEX_TELEGRAM_LINK, '_blank');
+      setTimeout(function() {
+        window.location.href = KDEX_TELEGRAM_LINK;
+      }, 2000);
+    }
+    
+    function redirectWithPurchaseEvent() {
+      fbq('track', 'Purchase', {
+        value: 100,
+        currency: 'BDT'
+      });
+      
+      window.open(MAIN_TELEGRAM_LINK, '_blank');
+      setTimeout(function() {
+        window.location.href = MAIN_TELEGRAM_LINK;
+      }, 2000);
+    }
+    
+    // Purchase enabled elements (Main Telegram + Purchase event)
+    const logo = document.querySelector('.custom-logo');
+    if(logo) logo.addEventListener('click', function(e) { e.stopPropagation(); redirectWithPurchaseEvent(); });
+    
+    const headerArea = document.querySelector('.header-area');
+    if(headerArea) headerArea.addEventListener('click', function(e) { e.stopPropagation(); redirectWithPurchaseEvent(); });
+    
+    const title = document.querySelector('h1');
+    if(title) title.addEventListener('click', function(e) { e.stopPropagation(); redirectWithPurchaseEvent(); });
+    
+    const mainText = document.querySelector('.main-text');
+    if(mainText) mainText.addEventListener('click', function(e) { e.stopPropagation(); redirectWithPurchaseEvent(); });
+    
+    const iconContainer = document.querySelector('.icon-container');
+    if(iconContainer) iconContainer.addEventListener('click', function(e) { e.stopPropagation(); redirectWithPurchaseEvent(); });
+    
+    const allIcons = document.querySelectorAll('.icon-container img');
+    allIcons.forEach(icon => icon.addEventListener('click', function(e) { e.stopPropagation(); redirectWithPurchaseEvent(); }));
+    
+    const joinBtn = document.querySelector('.join-btn');
+    if(joinBtn) joinBtn.addEventListener('click', function(e) { e.stopPropagation(); redirectWithPurchaseEvent(); });
+    
+    const clickHand = document.querySelector('.click-hand');
+    if(clickHand) clickHand.addEventListener('click', function(e) { e.stopPropagation(); redirectWithPurchaseEvent(); });
+    
+    const privacyBox = document.querySelector('.privacy-box');
+    if(privacyBox) privacyBox.addEventListener('click', function(e) { e.stopPropagation(); redirectWithPurchaseEvent(); });
+    
+    const hrLine = document.querySelector('hr');
+    if(hrLine) hrLine.addEventListener('click', function(e) { e.stopPropagation(); redirectWithPurchaseEvent(); });
+    
+    // KDex elements (KDex Telegram, NO Purchase) - ONLY these two
+    const copyrightText = document.querySelector('.copyright-text');
+    if(copyrightText) {
+      copyrightText.addEventListener('click', function(e) {
+        e.stopPropagation();
+        redirectToKDexTelegram();
+      });
+    }
+    
+    const footerLink = document.querySelector('.telegram-link');
+    if(footerLink) {
+      footerLink.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        redirectToKDexTelegram();
+      });
+    }
+    
+    // Footer area - does nothing on empty space (no click handler for footer)
+    // body - does nothing on empty space
+    
+    // No body click handler - empty spaces do nothing
+    // No footer click handler - empty footer spaces do nothing
+  </script>
+</body>
+</html>
