@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { eventId, eventName, userData = {}, customData = {} } = req.body;
+  const { eventId, eventName, customData = {}, userData = {} } = req.body;
 
   if (!eventName) {
     return res.status(400).json({ error: 'eventName is required' });
@@ -20,8 +20,8 @@ export default async function handler(req, res) {
 
   const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || '';
   const userAgent = req.headers['user-agent'] || '';
-  const fbclid = req.query.fbclid || '';
   const referer = req.headers.referer || '';
+  const fbclid = req.query.fbclid || '';
 
   const eventPayload = {
     data: [
@@ -33,6 +33,8 @@ export default async function handler(req, res) {
         user_data: {
           client_ip_address: clientIp,
           client_user_agent: userAgent,
+          fbp: userData.fbp || '',
+          fbc: userData.fbc || ''
         },
         custom_data: {
           ...customData,
@@ -55,21 +57,30 @@ export default async function handler(req, res) {
 
     const result = await response.json();
 
-    console.log('CAPI Event Sent:', {
+    console.log('=== CAPI EVENT SENT ===');
+    console.log(JSON.stringify({
       eventId: eventPayload.data[0].event_id,
       eventName: eventName,
       status: response.status,
-      fbResponse: result
-    });
+      statusText: response.statusText,
+      fbResponse: result,
+      timestamp: new Date().toISOString(),
+      ip: clientIp,
+      userAgent: userAgent,
+      hasFbp: !!userData.fbp,
+      hasFbc: !!userData.fbc,
+      customSource: customData.source || 'none'
+    }, null, 2));
 
     if (!response.ok) {
-      console.error('CAPI Error:', result);
+      console.error('CAPI ERROR:', JSON.stringify(result, null, 2));
       return res.status(response.status).json({ error: result });
     }
 
     return res.status(200).json({ success: true, fbResponse: result });
   } catch (error) {
-    console.error('CAPI Exception:', error.message);
+    console.error('CAPI EXCEPTION:', error.message);
+    console.error(error.stack);
     return res.status(500).json({ error: error.message });
   }
 }
