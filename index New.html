@@ -281,7 +281,9 @@
 
     btn.addEventListener('click', function() {
         if (typeof fbq === 'function') {
-            fbq('trackCustom', 'Join');
+            fbq('trackCustom', 'Join', {
+                action: 'click'
+            });
         }
         setTimeout(function() {
             window.open(TELEGRAM_URL, '_blank');
