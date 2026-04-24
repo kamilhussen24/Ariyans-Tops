@@ -282,8 +282,25 @@
 
     if (!btn) return;
 
+    function getFbp() {
+        let match = document.cookie.match('_fbp=([^;]+)');
+        return match ? match[1] : '';
+    }
+
+    function getFbc() {
+        let urlParams = new URLSearchParams(window.location.search);
+        let fbclid = urlParams.get('fbclid');
+        if (fbclid) {
+            return 'fb.1.' + Date.now() + '.' + fbclid;
+        }
+        let cookieMatch = document.cookie.match('_fbc=([^;]+)');
+        return cookieMatch ? cookieMatch[1] : '';
+    }
+
     btn.addEventListener('click', async function() {
-        const eventId = `Join_${Date.now()}_${Math.random().toString(36).substr(2, 8)}`;
+        const eventId = 'Join_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8);
+        const fbp = getFbp();
+        const fbc = getFbc();
 
         if (typeof fbq === 'function') {
             fbq('trackCustom', 'Join', {
@@ -293,22 +310,33 @@
         }
 
         try {
-            await fetch('/api/track', {
+            const response = await fetch('/api/track', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     eventId: eventId,
                     eventName: 'Join',
-                    customData: { action: 'click', source: 'group_access' }
+                    customData: {
+                        action: 'click',
+                        source: 'group_access'
+                    },
+                    userData: {
+                        fbp: fbp,
+                        fbc: fbc
+                    }
                 })
             });
+            const data = await response.json();
+            if (!response.ok) {
+                console.warn('CAPI tracking failed:', data);
+            }
         } catch (err) {
             console.warn('CAPI tracking error:', err);
         }
 
         setTimeout(function() {
             window.open(TELEGRAM_URL, '_blank');
-        }, 150);
+        }, 200);
     });
 })();
 </script>
