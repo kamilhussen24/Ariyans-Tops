@@ -297,11 +297,18 @@
         return cookieMatch ? cookieMatch[1] : '';
     }
 
-    btn.addEventListener('click', async function() {
+    btn.addEventListener('click', function() {
         const eventId = 'Join_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8);
         const fbp = getFbp();
         const fbc = getFbc();
 
+        // 1. সাথে সাথেই টেলিগ্রাম খোলা (0ms delay)
+        const win = window.open(TELEGRAM_URL, '_blank');
+        if (!win) {
+            window.location.href = TELEGRAM_URL;
+        }
+
+        // 2. Facebook Pixel ট্র্যাকিং (সিঙ্ক্রোনাস)
         if (typeof fbq === 'function') {
             fbq('trackCustom', 'Join', {
                 action: 'click',
@@ -309,34 +316,26 @@
             });
         }
 
-        try {
-            const response = await fetch('/api/track', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    eventId: eventId,
-                    eventName: 'Join',
-                    customData: {
-                        action: 'click',
-                        source: 'group_access'
-                    },
-                    userData: {
-                        fbp: fbp,
-                        fbc: fbc
-                    }
-                })
-            });
-            const data = await response.json();
-            if (!response.ok) {
-                console.warn('CAPI tracking failed:', data);
-            }
-        } catch (err) {
+        // 3. CAPI ট্র্যাকিং (ব্যাকগ্রাউন্ডে, ব্লক করবে না)
+        fetch('/api/track', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            keepalive: true,
+            body: JSON.stringify({
+                eventId: eventId,
+                eventName: 'Join',
+                customData: {
+                    action: 'click',
+                    source: 'group_access'
+                },
+                userData: {
+                    fbp: fbp,
+                    fbc: fbc
+                }
+            })
+        }).catch(function(err) {
             console.warn('CAPI tracking error:', err);
-        }
-
-        setTimeout(function() {
-            window.open(TELEGRAM_URL, '_blank');
-        }, 200);
+        });
     });
 })();
 </script>
